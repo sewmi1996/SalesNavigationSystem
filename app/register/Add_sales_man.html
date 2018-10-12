@@ -1,0 +1,82 @@
+
+<html>
+<head>
+ 	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+   	<script src="js/jquery-3.2.1.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="form.css">
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+     <script src="../firebase.js"></script>
+   <link rel="stylesheet"  href="../list.css">
+	<title>Add sales man</title>
+ 
+</head>
+<body ng-controller="RegisterCtrl">
+  <nav class="navbar navbar-inverse">
+                <div class="container-fluid row" style="width:100% ;background-color: #333">
+                     <ul class="nav navbar-nav row" style="display: inline">
+                        <li><a href="../addPost/addPost.html">Add post</a></li>
+                         <li><a href="../navigation/navigation.html">Navigation</a></li>
+                        <li><a href="../todo/todo.html">To do</a></li>
+                         <li><a href="../welcome/welcome.html">logout</a></li>
+                    </ul>
+                </div>
+        
+  </nav>   
+  <div class="container" align="center" style="margin-top:15%" >
+  <div class="card col-sm-12" style="background-color:lightgray;">
+  <form>
+  	<div><label class="col-sm-8" style="text-align:center;font-size:30px;color:gray">Add Salesman</label></div>
+			<div class="row" style="margin:12px">
+      				<div class="col-25"><label for="name">Name:</label> </div>
+      				<div class="col-75"><input type="text" id="name" name="name" required></div>
+    		</div>
+    	<br />
+    				 	<div ng-show="form.$submitted || form.name.$touched">
+      					<div ng-show="form.name.$error.required">Enter name.</div>
+    					</div>
+
+			<div class="row" style="margin:12px">
+      				<div class="col-25"><label for="email">Email:</label></div>
+     			 	<div class="col-75"><input type="email" ng-model="user.email" name="email" required></div>			
+  			  </div>
+   		<br />	
+					<div ng-show="form.$submitted || form.email.$touched">
+      					<span ng-show="form.email.$error.required">Enter email.</span>
+      					<span ng-show="form.email.$error.email">This is not a valid email.</span>
+   					 </div>
+    
+   			<div class="row" style="margin:12px">
+      			<div class="col-25"><label for="nic">NIC:</label></div>
+				 <div class="col-75"> <input type="text" ng-model="user.nic" name="uNIC" required></div>
+   			 </div>
+    	<br />	
+				<div ng-show="form.$submitted || form.uNIC.$touched">
+      				<span ng-show="form.uNIC.$error.required">Enter NIC No.</span>
+    			</div>
+    			<div class="row" style="margin:12px">
+      			<div class="col-25"><label for="tp_No:">T.P No.:</label></div>
+				 <div class="col-75"> <input type="text" ng-model="user.tp" name="uTP" required></div>
+   			 </div>
+    	<br />	
+				<div ng-show="form.$submitted || form.uTP.$touched">
+      				<span ng-show="form.uNIC.$error.required">Enter T.P No.</span>
+    			</div>
+		
+			<div class="row" style="margin:12px">
+      				<div class="col-25"><label for="addres">Address:</label></div>   		
+      			<div class="col-75"><textarea id="address" name="address"  style="height:200px"></textarea></div> 	
+    		</div>
+    	<br />	<div class="btn btn-group"><input class="btn btn-info" type="button" ng-click="reset(form)" value="Reset" />
+   			    <input class="btn btn-success" type="submit" ng-click="update(user)" value="Save" />
+   			    </div>
+      			
+  	</form>
+	</div>
+	</div>
+
+	</body>
+</html>

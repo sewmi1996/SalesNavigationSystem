@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="webApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="webApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="webApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="webApp" class="no-js"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="bower_components/jquery/dist/jquery.min.js">
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  
+  
+  <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-functions.js"></script>
+
+  <script>
+    // Initialize Firebase
+    /*var config = {
+      apiKey: "AIzaSyAQSL4eNJgSLzjttqMaXdxbr4g8Ogun65I",
+      authDomain: "webapp-b8cdc.firebaseapp.com",
+      databaseURL: "https://webapp-b8cdc.firebaseio.com",
+      projectId: "webapp-b8cdc",
+      storageBucket: "webapp-b8cdc.appspot.com",
+      messagingSenderId: "775333767065"
+    }
+    firebase.initializeApp(config);
+    var ref = firebase.database();
+    
+
+    /*var defaultApp = firebase.initializeApp(defaultAppConfig);
+
+console.log(defaultApp.name);  // "[DEFAULT]"
+
+// You can retrieve services via the defaultApp variable...
+var defaultStorage = defaultApp.storage();
+var defaultDatabase = defaultApp.database();
+
+// ... or you can use the equivalent shorthand notation
+defaultStorage = firebase.storage();
+defaultDatabase = firebase.database();*/
+  </script>
+  
+</head>
+<body>
+  
+
+  <div ng-view></div>
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="bower_components/angularfire/dist/angularfire.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAQSL4eNJgSLzjttqMaXdxbr4g8Ogun65I",
+      authDomain: "webapp-b8cdc.firebaseapp.com",
+      databaseURL: "https://webapp-b8cdc.firebaseio.com",
+      projectId: "webapp-b8cdc",
+      storageBucket: "webapp-b8cdc.appspot.com",
+      messagingSenderId: "775333767065"
+    }
+    firebase.initializeApp(config);
+    var ref = firebase.database();
+    
+  </script>
+
+  <script src="app.js"></script>
+  <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  
+  <script type="text/javascript" src="home/home.js"></script>
+  <script type="text/javascript" src="register/register.js"></script>
+  <script type="text/javascript" src="welcome/welcome.js"></script>
+  <script type="text/javascript" src="addPost/addPost.js"></script>
+  <script type="text/javascript" src="editpost/editpost.js"></script>
+  <script type="text/javascript" src="todo/todo.js"></script>
+  <script type="text/javascript" src="navigation/navigation.js"></script>
+  <script type="text/javascript" src="addSalesman/addSalesman.js"></script>
+  
+  
+  
+</body>
+</html>

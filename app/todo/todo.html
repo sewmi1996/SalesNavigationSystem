@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <title>Adding tasks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="//favicon.ico" type="image/x-icon" sizes="16x16">
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   <link rel="stylesheet"  href="../list.css">
+</head>
+<body>
+<div ng-controller="TodoCtrl" class="container" >
+       <nav class="navbar navbar-inverse">
+                <div class="container-fluid"style="width:100% ;background-color: #333">
+                     <ul class="nav navbar-nav"style="display:inline">
+                        <li><a href="../addPost/addPost.html">Add post</a></li>
+                        <li><a href="../navigation/navigation.html">Navigation</a></li>
+                        <li><a href="../register/Add_sales_man.html">Add salesman</a></li>
+                         <li><a href="../welcome/welcome.html">logout</a></li>
+                    </ul>
+                </div>
+        
+            </nav>
+    <h2>Employes tasks</h2>
+    <h4> Add tasks to be completed</h4>
+
+
+    <!--ADD ITEM FORM-->
+    <form name="todoForm">
+
+        <div>
+            <input type="text"
+                   name="todoNameField"
+                   ng-model="todoName"
+                   placeholder="Add new task "
+                   required ng-minlength="3"
+                   class="form-control"
+                   ng-keyup="($event.keyCode == 13 && todoName.length > 2) ? addtodo() : return"
+                   style="margin-bottom: 10px"
+                    />
+                    <input type="text"
+                   name="todoSalesmanField"
+                   ng-model="todoSalesman"
+                   placeholder="Add salesman "
+                   required ng-minlength="3"
+                   class="form-control"
+                   ng-keyup="($event.keyCode == 13 && todoSalesman.length > 2) ? addtodo() : return"
+                   style="margin-bottom: 10px"
+                    />
+                    <input type="text"
+                   name="locationField"
+                   ng-model="location"
+                   placeholder="Add location "
+                   required ng-minlength="3"
+                   class="form-control"
+                   ng-keyup="($event.keyCode == 13 && todoSalesman.length > 2) ? addtodo() : return"
+                   style="margin-bottom: 10px"
+                    />
+
+            <button ng-click="addTodo()"
+                    ng-hide="myForm.todoNameField.$invalid"
+                   ng-hide="myForm.todoSalesmanField.$invalid"
+                    class="btn btn-primary" type="button"
+                    >Save Todo
+            </button>
+        </div>
+
+    </form>
+
+    <hr />
+
+    <!--TODO LIST-->
+
+    <h4 ng-show="(todos | filter:{status: 'pending'}).length">Pending</h4>
+
+    <div ng-repeat="todo in todos | filter:{status: 'pending'}"
+         class="row list-item">
+
+        <div class="col-md-6">
+
+            <!--TODO LABEL-->
+            <span>{{todo.name}}</span>
+        </div>
+        <div class="col-md-6 text-right">
+            <!--START TODO BUTTON-->
+            <a class="btn btn-warning"
+               ng-click="startTodo($index, todo)">
+                Start
+            </a>
+
+            <a class="btn btn-primary"
+            ng-click="">
+             View Details
+         </a>
+
+            <!--DELETE TODO BUTTON-->
+            <a class="btn btn-danger"
+               ng-click="removeTodo($index, todo)">
+                <i class="glyphicon glyphicon-remove"></i> Remove
+            </a>
+
+        </div>
+
+    </div>
+
+    <h4 ng-show="(todos | filter:{status: 'in progress'}).length">In Progress</h4>
+
+    <div ng-repeat="todo in todos | filter:{status: 'in progress'}"
+         class="row list-item bg-warning">
+
+        <div class="col-md-6">
+
+            <!--TODO LABEL-->
+            <span>{{todo.name}}</span>
+        </div>
+        <div class="col-md-6 text-right">
+            <!--COMPLETED TODO BUTTON-->
+            <a class="btn btn-primary"
+               ng-click="completeTodo($index, todo)">
+                <i class="glyphicon glyphicon-ok"></i> Complete
+            </a>
+            <a class="btn btn-primary"
+            ng-click="">
+             View Details
+         </a>
+            <!--DELETE TODO BUTTON-->
+            <a class="btn btn-danger"
+               ng-click="removeTodo($index, todo)">
+                <i class="glyphicon glyphicon-remove"></i> Remove
+            </a>
+
+        </div>
+
+    </div>
+
+    <h4 ng-show="(todos | filter:{status: 'complete'}).length">Completed</h4>
+
+    <div ng-repeat="todo in todos | filter:{status: 'complete'}"
+         class="row list-item bg-success">
+
+        <div class="col-md-6">
+
+            <!--TODO LABEL-->
+            <span>{{todo.name}}</span>
+        </div>
+        <div class="col-md-6 text-right">
+
+                <a class="btn btn-primary"
+                ng-click="">
+                 View Details
+             </a>
+
+            <!--DELETE TODO BUTTON-->
+            <a class="btn btn-danger"
+               ng-click="removeTodo($index, todo)">
+                <i class="glyphicon glyphicon-remove"></i> Remove
+            </a>
+
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <!--<script src="app.js"></script>-->
+</div>
+</body>
+</html>
